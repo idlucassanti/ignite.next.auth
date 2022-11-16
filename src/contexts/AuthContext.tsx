@@ -1,4 +1,5 @@
 import { createContext, ReactNode } from "react";
+import { api } from "../services/api";
 
 type ICredencial = {
   email: string;
@@ -20,8 +21,17 @@ export function AuthProvider({ children }: IAuthProvider) {
   const isAuthenticated = false;
 
   async function autenticar({ email, password }: ICredencial) {
-    console.log('Autenticar')
-    console.log({email, password});
+    try {
+      const response = await api.post('autenticacao', {
+        email,
+        password
+      });
+  
+      console.log(response.data);
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   return(

@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   return (
-      <form onClick={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input type="email" value={email} onChange={e => setEmail(e.target.value)}/>
         <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
         <button type="submit">Entrar</button>
